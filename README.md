@@ -14,12 +14,12 @@ retake the quizzes as often as s/he likes.
 
 ## Installation
 
-This project is being submitted through the github repo, located at
-https://github.com/noreenwu/flashcards. It should require only npm install and npm start to launch.
-However, there was an issue in my environment which required that I run "expo start -c"
-in order to import the "expo" libraries.
+This project is being submitted through a link to the github repo, located at
+https://github.com/noreenwu/mflashcards. To run the app, clone the repository
+and then, within that directory, run "yarn install" and "yarn start."
 
 This has been tested in an ios simulator and on an actual Android Pixel 3 via Expo.
+
 
 ## Implementation Notes
 
@@ -42,7 +42,8 @@ the user utilizes the Quiz -- even if she does not finish the Quiz.
 Two starter decks are provided at App-startup (React, JavaScript). When the App loads, these
 are written (they are defined as a JavaScript object) and then read from AsyncStorage. Thereafter,
 changes made (new decks, cards added to decks, deleted decks), are made both to the app's primary state
-(in the AllDecks component) and to AsyncStorage.
+(in the AllDecks component) and to AsyncStorage. To test the persistence of AsyncStorage,
+follow the notes in the code to avoid the initDecks call.
 
 A TabNavigator contains a single link which can return the user Home (the All Decks screen)
 from any point in the App. A StackNavigator allows the user to retrace her steps using
@@ -50,16 +51,14 @@ a Back button.
 
 Navigation between screens primarily occurs through the Stack Navigator. If an entity (TouchableOpacity or
 ListItem) is clicked ("pressed"), then the Navigator's navigation.navigate brings the user to the specified screen,
-defined in StackNavigator. It is through the onPress method that properties, such as objects
+defined in StackNavigator. It is through the onPress method that properties (params), such as objects
 and functions from top-level components (AllDecks) that need to be invoked or updated to maintain state,
 are passed from one View to another. The bulk of the application's state is kept in AllDecks,
-while small pieces of the state, such as a single deck, may be passed down for display or updating by
+while small pieces of the state, such as for a single deck, may be passed down for display or updating by
 child components, like NewCard.
 
 
 ## Required Files
-
-index.js - reads from app.json to get the Application name and register it in the AppRegistry
 
 App.js - contains the StackNavigator and the BottomTabNavigator
 
@@ -95,14 +94,17 @@ components/NewDeck.js - the button to access this is located on the main screen.
 
 
 components/CardsInDeck - this is just a stateless functional component that writes out how many
-       cards are in a deck. DeckDetail and Quiz utilize this same description, "This deck contains {} cards".
+       cards are in a deck. DeckDetail and Quiz utilize the same description, "This deck contains {} cards".
 
 
 components/styles.js - contains all the styling for the App. Some extra changes (like button color) are
        merged in individually within the components, but this central place for the majority of the
-       styling ensures consistent color and size of buttons and titles.
+       styling ensures consistent color and sizes of buttons and titles.
 
 
-utils/helpers.js
+utils/helpers.js - this contains the logic for creating and setting the notification reminder to study.
+       It also contains an interface to the create, update and delete functions that write out updates
+       to AsyncStorage.
 
-utils/api.js
+utils/api.js - this contains the getDecks, initDecks functions as well as deleteDeck and saveDeck
+       functions that act on AsyncStorage.
