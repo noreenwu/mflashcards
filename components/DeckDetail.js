@@ -20,7 +20,6 @@ class DeckDetail extends Component {
 
     const { deck } = params
     const numCards = deck.questions.length
-    // const cardPlur = cardOrCards(deck.questions.length)
 
     return (
         <View>

@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import { Text, View, Button, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types'
+import QuizResults from './QuizResults'
+import { clearLocalNotification, setLocalNotification, cardOrCards } from '../utils/helpers'
+import { styles, blue, green, red } from './styles'
+
 export const QUESTION = 'question'
 export const ANSWER = 'answer'
 export const RESULTS = 'results'
-import QuizResults from './QuizResults'
-import PropTypes from 'prop-types'
-import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
-import { styles, blue, green, red } from './styles'
-import { cardOrCards } from '../utils/helpers'
+
 
 class QuizCard extends Component {
   state = {
@@ -21,7 +22,6 @@ class QuizCard extends Component {
     let newMode = this.state.mode
 
     if (this.state.mode === QUESTION) {
-        // newIndex = this.state.idx
         newMode = ANSWER
     }
 
@@ -167,7 +167,7 @@ class QuizCard extends Component {
                     title="Deck Options"
                     onPress={() => this.props.navFxn('DeckDetail',
                                                       { deleteDeck: this.props.deleteDeck,
-                                                         deck: this.props.deck })}
+                                                        deck: this.props.deck })}
 
                   >
                   <Text style={styles.buttonText}>Deck Options</Text>
@@ -185,5 +185,6 @@ QuizCard.propTypes = {
   deleteDeck: PropTypes.func.isRequired,
   navFxn: PropTypes.func.isRequired
 }
+
 
 export default QuizCard

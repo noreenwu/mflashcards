@@ -5,10 +5,9 @@ import { ListItem } from 'react-native-elements'
 import PropTypes from 'prop-types'
 import { cardOrCards } from '../utils/helpers'
 import { Feather } from '@expo/vector-icons'
-import { styles } from './styles'
+import { styles, blue } from './styles'
 
 class DeckListItem extends Component {
-
 
   render() {
 
@@ -21,7 +20,7 @@ class DeckListItem extends Component {
                key={name}
                title={name}
                subtitle={`${deck.questions.length} ${cardOrCards(deck.questions.length)}`}
-               leftIcon={{ name: 'layers', color: '#1d51a2'}}
+               leftIcon={{ name: 'layers', color: blue}}
                onPress={() => this.props.navigate('DeckDetail',
                                                    { deleteDeck: this.props.deleteDeck,
                                                      updateDeck: this.props.updateDeck,

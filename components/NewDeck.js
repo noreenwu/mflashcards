@@ -37,7 +37,6 @@ class NewDeck extends Component {
     let createDeckFxn = params.createNewDeck
     let deleteDeck = params.deleteDeck
     let updateDeck = params.updateDeck
-    console.log ("NewDeck updateDeck fxn is ", params.updateDeck)
 
     return (
         <View>
@@ -60,7 +59,7 @@ class NewDeck extends Component {
 
         </View>
 
-    );
+    )
   }
 }
 

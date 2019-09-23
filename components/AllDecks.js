@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native';
 import DeckListItem from './DeckListItem'
 import { initDecks, getDecks } from '../utils/api'
-import { saveDeckTitle, saveDeck, getDeck, saveCardToDeck, deleteDeck } from '../utils/helpers'
-import { setLocalNotification } from '../utils/helpers'
+import { saveDeckTitle, saveDeck, getDeck, saveCardToDeck, deleteDeck, setLocalNotification } from '../utils/helpers'
 import { styles } from './styles'
 
 class AllDecks extends Component {
@@ -12,7 +11,7 @@ class AllDecks extends Component {
    componentDidMount() {
     setLocalNotification()
 
-    initDecks()
+    initDecks()                // to test AsyncStorage persistence, change initDecks to getDecks and reload the app
       .then(getDecks()
         .then((decks) => {
           this.setState(() => ({
@@ -22,7 +21,7 @@ class AllDecks extends Component {
     ))}
 
   state = {
-    decks: {}           // initial state
+    decks: {}                 // initial state
 
   }
 
@@ -35,25 +34,11 @@ class AllDecks extends Component {
               console.log("deleted the deck from Storage")
           })
 
-          // .then(getDecks()
-          //     .then((newDecks) => {
-          //       this.setState(() => ({
-          //          decks: newDecks
-          //       }))
-          //     }))
-          // .then(getDecks()
-          //   .then((decks) => {
-          //     this.setState(() => ({
-          //       decks
-          //     }))
-          // }))
 
         // delete deck from this component's state
         let decksCopy = Object.assign(this.state.decks, {})
 
-        console.log("editing the state manually: ", decksCopy)
         delete decksCopy[title]
-        console.log("after the delete: ", decksCopy)
 
         this.setState({ decks: decksCopy })
 
@@ -62,7 +47,7 @@ class AllDecks extends Component {
 
 
   createNewDeck(title){
-    // being used to add a new deck. may be modified to take more general updates
+    // This is used to add a new deck. This component maintains state for all decks.
 
         if (title) {
           let newDeck = saveDeckTitle(title)        // helper function
@@ -79,6 +64,7 @@ class AllDecks extends Component {
 
 
   updateDeck(deck) {
+    // This is used to make changes to decks, i.e. to add a new card or question to a deck.
 
       if (! deck) {
           console.log("updateDeck: no data ")

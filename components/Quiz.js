@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Button, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import QuizCard from './QuizCard'
 import { styles } from './styles'
 import CardsInDeck from './CardsInDeck'
@@ -28,7 +28,7 @@ class Quiz extends Component {
            <Text style={styles.subtitleMediumPartialTop}>{deck.title}</Text>
            <CardsInDeck numQuestions={numQuestions}/>
 
-           <QuizCard navFxn={this.props.navigation.navigate}                     
+           <QuizCard navFxn={this.props.navigation.navigate}
                      deleteDeck={params.deleteDeck}
                      deck={deck} />
 

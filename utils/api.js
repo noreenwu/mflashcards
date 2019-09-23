@@ -1,4 +1,3 @@
-// import { AsyncStorage } from '@react-native-community/async-storage';
 import { AsyncStorage } from 'react-native'
 
 
@@ -31,47 +30,21 @@ let decks = {
 
 
 
-
-// export function submitEntry ({ entry, key }) {
-//   return AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify({
-//     [key]: entry
-//   }), () => {
-//     AsyncStorage.getItem(DECKS_STORAGE_KEY, (err, result) => {
-//       console.log(result)
-//     });
-//   })
-// }
-
-// export function removeEntry (key) {
-//   return AsyncStorage.getItem(DECKS_STORAGE_KEY)
-//     .then((results) => {
-//       const data = JSON.parse(results)
-//       data[key] = undefined
-//       delete data[key]
-//       AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data))
-//     })
-// }
-
-// export function removeEntry (key) {
-//   return AsyncStorage.getItem(DECKS_STORAGE_KEY)
-//     .then((results) => {
-//       const data = JSON.parse(results)
-//       data[key] = undefined
-//       delete data[key]
-//       AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data), () => {
-//         AsyncStorage.getItem(DECKS_STORAGE_KEY, (err, result) => {
-//           console.log(result)
-//       })
-//     })
-// })}
-
-
+export function initDecks() {
+    console.log("initDecks")
+    return AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(decks), () => {
+      AsyncStorage.getItem(DECKS_STORAGE_KEY)
+        .then(results => JSON.stringify(results))
+        .then(results => console.log("results of initDecks", results))
+      });
+}
 
 export function getDecks() {
   console.log("getDecks")
   return AsyncStorage.getItem(DECKS_STORAGE_KEY)
     .then(results => JSON.parse(results))
 }
+
 
 export function _getDeck(id) {
 
@@ -108,16 +81,4 @@ export function _saveDeck(deck) {
       console.log(result);
     });
   });
-}
-
-
-
-
-export function initDecks() {
-    console.log("initDecks")
-    return AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(decks), () => {
-      AsyncStorage.getItem(DECKS_STORAGE_KEY)
-        .then(results => JSON.stringify(results))
-        .then(results => console.log("results of initDecks", results))
-      });
 }
