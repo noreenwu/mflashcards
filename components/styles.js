@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native'
 
 export const blue = '#1d51a2'
+export const green = '#436944'
+export const red = '#b72734'
 
 export const styles = StyleSheet.create({
   container: {
@@ -106,6 +108,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'lightgrey',
     marginLeft: 12,
     marginRight: 12,
+    marginBottom: 15,
     borderRadius: 10,
     borderWidth: 0.5,
     borderColor: blue

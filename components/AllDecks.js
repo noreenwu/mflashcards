@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { Text, View, Button, FlatList, Fragment, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import DeckListItem from './DeckListItem'
 import { initDecks, getDecks } from '../utils/api'
 import { saveDeckTitle, saveDeck, getDeck, saveCardToDeck, deleteDeck } from '../utils/helpers'

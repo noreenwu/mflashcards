@@ -28,9 +28,7 @@ class Quiz extends Component {
            <Text style={styles.subtitleMediumPartialTop}>{deck.title}</Text>
            <CardsInDeck numQuestions={numQuestions}/>
 
-           <QuizCard 
-                     deck={deck}
-                     navFxn={this.props.navigation.navigate}
+           <QuizCard navFxn={this.props.navigation.navigate}                     
                      deleteDeck={params.deleteDeck}
                      deck={deck} />
 

@@ -6,7 +6,7 @@ export const RESULTS = 'results'
 import QuizResults from './QuizResults'
 import PropTypes from 'prop-types'
 import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
-import { styles, blue } from './styles'
+import { styles, blue, green, red } from './styles'
 import { cardOrCards } from '../utils/helpers'
 
 class QuizCard extends Component {
@@ -134,14 +134,14 @@ class QuizCard extends Component {
                </View>
 
                <TouchableOpacity
-                  style={Object.assign({}, styles.smallButton, {backgroundColor: 'green'})}
+                  style={Object.assign({}, styles.smallButton, {backgroundColor: green})}
                   title="Correct"
                   onPress={() => this.tallyCorrect(totQuestions)}
                 >
                 <Text style={styles.buttonText}>Correct</Text>
                </TouchableOpacity>
                <TouchableOpacity
-                  style={Object.assign({}, styles.smallButton, {backgroundColor: 'red'})}
+                  style={Object.assign({}, styles.smallButton, {backgroundColor: red})}
                   title="Incorrect"
                   onPress={() => this.tallyIncorrect(totQuestions)}
                 ><Text style={styles.buttonText}>Incorrect</Text>

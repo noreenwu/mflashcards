@@ -39,7 +39,9 @@ DeckListItem.propTypes = {
   deck: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   deleteDeck: PropTypes.func.isRequired,
-  updateDeck: PropTypes.func.isRequired
+  updateDeck: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired
 }
+
 
 export default DeckListItem

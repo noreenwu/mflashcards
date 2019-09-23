@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Text, View, Button, TouchableOpacity } from 'react-native'
 import { styles } from './styles'
 import { cardOrCards } from '../utils/helpers'
-import PropTypes from 'prop-types'
 import CardsInDeck from './CardsInDeck'
 
 class DeckDetail extends Component {
@@ -65,8 +64,5 @@ class DeckDetail extends Component {
   }
 }
 
-// DeckDetail.propTypes = {
-//   name: PropTypes.name.isRequired,
-// }
 
 export default DeckDetail
