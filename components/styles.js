@@ -101,5 +101,13 @@ export const styles = StyleSheet.create({
     width: 120,
     borderRadius: 15,
     alignSelf: 'center'
+  },
+  box: {
+    backgroundColor: 'lightgrey',
+    margin: 12,
+    borderRadius: 10,
+    paddingTop: 10,
+    borderWidth: 0.5,
+    borderColor: blue
   }
 })

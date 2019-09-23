@@ -103,15 +103,18 @@ class QuizCard extends Component {
       const cardPlur = cardOrCards(numQuestionsLeft)
       return (
            <View>
-             <Text style={styles.centerNoMargin}>Question {this.state.idx + 1} of {totQuestions}</Text>
-             { ( numQuestionsLeft > 0 )
-                ? <Text style={styles.centerBottomMargin}> ({numQuestionsLeft} more {cardPlur} after this)</Text>
-                : <Text style={styles.centerBottomMargin}> (No cards left after this: last question!)</Text>
-              }
-               <Text style={styles.questionAnswer}>
+              <Text style={styles.centerNoMargin}>Question {this.state.idx + 1} of {totQuestions}</Text>
+              <View style={styles.box}>
+                 { ( numQuestionsLeft > 0 )
+                    ? <Text style={styles.centerBottomMargin}> ({numQuestionsLeft} more {cardPlur} after this)</Text>
+                    : <Text style={styles.centerBottomMargin}> (No cards left after this: last question!)</Text>
+                  }
+                   <Text style={styles.questionAnswer}>
 
-               Question: { question }
-             </Text>
+                   Question: { question }
+                 </Text>
+               </View>
+
              <TouchableOpacity
                  style={Object.assign({}, styles.smallButton, {backgroundColor: blue})}
                  onPress={() => this.showAnswer()}
@@ -124,7 +127,10 @@ class QuizCard extends Component {
 
      else if ( this.state.mode === ANSWER ) {
        return (
-           <View><Text style={styles.questionAnswer}>Answer: {answer} </Text>
+           <View>
+               <View style={styles.box}>
+                  <Text style={styles.questionAnswer}>Answer: {answer} </Text>
+               </View>
 
                <TouchableOpacity
                   style={Object.assign({}, styles.smallButton, {backgroundColor: 'green'})}

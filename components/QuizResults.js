@@ -13,7 +13,7 @@ class QuizResults extends Component {
     const percentage = Math.round((numCorrect * 100)/numQuestions);
 
     return (
-      <View>
+      <View style={styles.box}>
         <Text style={Object.assign({}, styles.subtitleMediumPartialTop, {fontStyle: 'italic'})}>How Did You Do?</Text>
         <Text style={styles.center}>You got {numCorrect} out of {numQuestions} correct or {percentage}% correct. </Text>
       </View>
