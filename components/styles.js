@@ -104,9 +104,9 @@ export const styles = StyleSheet.create({
   },
   box: {
     backgroundColor: 'lightgrey',
-    margin: 12,
+    marginLeft: 12,
+    marginRight: 12,
     borderRadius: 10,
-    paddingTop: 10,
     borderWidth: 0.5,
     borderColor: blue
   }
