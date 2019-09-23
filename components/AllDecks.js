@@ -3,25 +3,25 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native';
 import DeckListItem from './DeckListItem'
 import { initDecks, getDecks } from '../utils/api'
-import { saveDeckTitle, saveDeck, getDeck, saveCardToDeck, deleteDeck, setLocalNotification } from '../utils/helpers'
+import { saveDeckTitle, saveDeck, deleteDeck, setLocalNotification } from '../utils/helpers'
 import { styles } from './styles'
 
 class AllDecks extends Component {
 
    componentDidMount() {
-    setLocalNotification()
+      setLocalNotification()     // this is to remind the user to study every day. specifics are in utils/helpers
 
-    initDecks()                // to test AsyncStorage persistence, change initDecks to getDecks and reload the app
-      .then(getDecks()
-        .then((decks) => {
-          this.setState(() => ({
-            decks
-          }))
-      }
-    ))}
+      initDecks()                // to test AsyncStorage persistence, change initDecks to getDecks and reload the app
+        .then(getDecks()
+          .then((decks) => {
+            this.setState(() => ({
+              decks
+            }))
+        }
+      ))}
 
-  state = {
-    decks: {}                 // initial state
+      state = {
+        decks: {}                 // initial state
 
   }
 
@@ -49,17 +49,17 @@ class AllDecks extends Component {
   createNewDeck(title){
     // This is used to add a new deck. This component maintains state for all decks.
 
-        if (title) {
-          let newDeck = saveDeckTitle(title)        // helper function
+      if (title) {
+        let newDeck = saveDeckTitle(title)        // helper function
 
-          // update this component's state
-          let origDecks = this.state.decks
+        // update this component's state
+        let origDecks = this.state.decks
 
-          let mergedDecks = Object.assign(origDecks, newDeck)
+        let mergedDecks = Object.assign(origDecks, newDeck)
 
-          this.setState({ decks: mergedDecks })
-         }
-    }
+        this.setState({ decks: mergedDecks })
+      }
+   }
 
 
 
@@ -67,7 +67,6 @@ class AllDecks extends Component {
     // This is used to make changes to decks, i.e. to add a new card or question to a deck.
 
       if (! deck) {
-          console.log("updateDeck: no data ")
           return
       }
 

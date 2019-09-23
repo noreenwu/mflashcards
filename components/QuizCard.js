@@ -166,7 +166,8 @@ class QuizCard extends Component {
                     style={styles.button}
                     title="Deck Options"
                     onPress={() => this.props.navFxn('DeckDetail',
-                                                      { deleteDeck: this.props.deleteDeck,
+                                                      { updateDeck: this.props.updateDeck,
+                                                        deleteDeck: this.props.deleteDeck,
                                                         deck: this.props.deck })}
 
                   >
@@ -182,6 +183,7 @@ class QuizCard extends Component {
 
 QuizCard.propTypes = {
   deck: PropTypes.object.isRequired,
+  updateDeck: PropTypes.func.isRequired,
   deleteDeck: PropTypes.func.isRequired,
   navFxn: PropTypes.func.isRequired
 }

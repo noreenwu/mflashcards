@@ -42,6 +42,7 @@ class DeckDetail extends Component {
              title="Quiz Me"
              onPress={() => this.props.navigation.navigate('Quiz',
                                                           { deck: deck,
+                                                            updateDeck: params.updateDeck,
                                                             deleteDeck: params.deleteDeck })}
 
            >

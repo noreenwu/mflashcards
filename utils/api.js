@@ -31,7 +31,6 @@ let decks = {
 
 
 export function initDecks() {
-    console.log("initDecks")
     return AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(decks), () => {
       AsyncStorage.getItem(DECKS_STORAGE_KEY)
         .then(results => JSON.stringify(results))
@@ -40,21 +39,8 @@ export function initDecks() {
 }
 
 export function getDecks() {
-  console.log("getDecks")
   return AsyncStorage.getItem(DECKS_STORAGE_KEY)
     .then(results => JSON.parse(results))
-}
-
-
-export function _getDeck(id) {
-
-  return AsyncStorage.getItem(DECKS_STORAGE_KEY)
-    .then((results) => {
-      const data = JSON.parse(results)
-      console.log("AsyncStorage.getItem", data[id])
-      return data[id]
-    })
-
 }
 
 

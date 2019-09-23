@@ -29,6 +29,7 @@ class Quiz extends Component {
            <CardsInDeck numQuestions={numQuestions}/>
 
            <QuizCard navFxn={this.props.navigation.navigate}
+                     updateDeck={params.updateDeck}
                      deleteDeck={params.deleteDeck}
                      deck={deck} />
 

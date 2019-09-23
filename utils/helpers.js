@@ -47,7 +47,7 @@ export function setLocalNotification () {
                 createNotification(),
                 {
                   time: tomorrow,
-                  repeat: 'minute',
+                  repeat: 'day',
                 }
               )
 
@@ -67,6 +67,7 @@ export function cardOrCards(len) {
   }
 }
 
+
 export function formatNewDeck(newDeckTitle) {
   let formattedDeck = { [newDeckTitle] : { title: newDeckTitle,
                                            questions: [] }}
@@ -79,10 +80,6 @@ export function formatChangedDeck(deck) {
   let formattedDeck = { [deck.title] : deck }
   return formattedDeck
 }
-
-
-
-
 
 export function saveDeck(deck) {
   let formattedDeck = formatChangedDeck(deck)
@@ -101,35 +98,4 @@ export function saveDeckTitle(title) {
 export function deleteDeck(deckTitle) {
 
   return _deleteDeck(deckTitle)
-}
-
-
-export function getDeck(id) {
-  console.log("getDeck id ", id)
-
-  return _getDeck(id).
-    then((results) => {
-      console.log("deckData", results)
-    })
-
-}
-
-
-
-export function saveCardToDeck(deckTitle, card) {
-
-  console.log("saveCardToDeck")
-
-   _getDeck(deckTitle).
-    then((results) => {
-      console.log("deckData", results.questions)
-      // let resultsCopy = Object.assign(resultsCopy, results)
-      // resultsCopy.questions.push(card)
-      // let formattedDeck = formatChangedDeck(resultsCopy)
-      // console.log("formattedDeck ", formattedDeck)
-      // _saveDeck(formattedDeck)
-    }).catch((err) => {
-        console.log("error saving card to deck", err)
-    })
-
 }
