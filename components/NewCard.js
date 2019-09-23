@@ -73,9 +73,6 @@ class NewCard extends Component {
               onPress={() => this.submit(params.updateDeck, params.deleteDeck, deck, this.props.navigation.navigate, true) }
             ><Text style={styles.buttonText}>Submit</Text>
            </TouchableOpacity>
-
-
-
         </View>
 
     );

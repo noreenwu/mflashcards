@@ -3,6 +3,7 @@ import { AsyncStorage } from 'react-native'
 
 const DECKS_STORAGE_KEY = 'Flashcards:decks';
 
+// these are starter decks, so the app loads with some data. 
 let decks = {
   React: {
     title: 'React',
