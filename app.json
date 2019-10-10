@@ -2,6 +2,7 @@
   "expo": {
     "name": "MobileFlashcards",
     "slug": "MobileFlashcards",
+    "description": "Create decks of Flashcards to keep up with your studies!",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -19,7 +20,7 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/*"
     ],
     "ios": {
       "supportsTablet": true
